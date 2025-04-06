@@ -1,0 +1,22 @@
+@startuml
+title Add Course
+
+' Размещаем акторов вертикально слева '
+actor "Education center " as EducationCenter
+actor Course
+
+' Горизонтально располагаем юзкейсы '
+left to right direction
+
+usecase UC_ClickAddCourse as "Click add course"
+usecase UC_EnterInfo as "Enter avatar, title, description, age-range, category, price, durability (in weeks), maxParticipants"
+usecase UC_Submit as "Click OK"
+usecase UC_Success as "Successful added"
+
+EducationCenter --> UC_ClickAddCourse
+
+UC_ClickAddCourse --> UC_EnterInfo
+UC_EnterInfo --> UC_Submit
+UC_Submit --> UC_Success
+
+@enduml

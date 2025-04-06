@@ -1,0 +1,31 @@
+'Регистрацию могут делать Parent с номером телефона'
+
+@startuml
+title Registration
+
+
+actor Parent
+'actor "Education Center" as EducationCenter'
+
+'Горизонтально располагаем юзкейсы'
+left to right direction
+
+usecase UC_SignUp as "Click Sign Up"
+usecase UC_EnterPhone as "Enter phone number and password"
+usecase UC_SendSMS as "Click Send SMS"
+usecase UC_EnterCode as "Enter code from SMS"
+usecase UC_FillDetails as "Fill in additional details"
+usecase UC_Submit as "Click 'Submit'"
+usecase UC_Success as "Registration successful"
+
+Parent --> UC_SignUp
+'EducationCenter --> UC_SignUp'
+
+UC_SignUp --> UC_EnterPhone
+UC_EnterPhone --> UC_SendSMS
+UC_SendSMS --> UC_EnterCode
+UC_EnterCode --> UC_FillDetails
+UC_FillDetails --> UC_Submit
+UC_Submit --> UC_Success
+
+@enduml
