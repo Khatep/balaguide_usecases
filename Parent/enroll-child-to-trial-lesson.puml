@@ -1,0 +1,40 @@
+@startuml
+title Enroll Child to Trial Lesson
+
+actor Parent
+
+left to right direction
+
+rectangle "Main Page" {
+  usecase "Browse courses" as UC_Browse
+  usecase "Click on course/center" as UC_Click1
+}
+
+rectangle "Search Page" {
+  usecase "View courses and centers on map or Search by title of course" as UC_Search
+  usecase "Click on course/center" as UC_Click2
+}
+
+  usecase "View course details" as UC_Details
+  usecase "Click 'Trial Lesson'" as UC_Enroll
+  usecase "Take Entry Test (if exists)" as UC_Test
+  usecase "Choose Date and Time" as UC_Schedule
+  usecase "Confirm Enrollment" as UC_Confirm
+  usecase "Receive Notification" as UC_Notify
+  usecase "Notify if Trial Unavailable" as UC_Unavailable
+  
+
+
+Parent --> UC_Browse
+UC_Browse --> UC_Click1
+UC_Click1 --> UC_Details
+UC_Details --> UC_Enroll
+UC_Enroll --> UC_Test
+UC_Test --> UC_Schedule
+UC_Schedule --> UC_Confirm
+UC_Confirm --> UC_Notify
+UC_Notify --> UC_Unavailable
+
+Parent --> UC_Search
+UC_Search --> UC_Click2
+UC_Click2 --> UC_Details

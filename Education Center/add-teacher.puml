@@ -2,22 +2,24 @@
 title Add Teacher
 
 ' Размещаем акторов вертикально слева
-actor "Education Center" as Education Center
+actor "Education Center" as EducationCenter
 actor Teacher 
 
 ' Горизонтально располагаем юзкейсы
 left to right direction
 
-usecase UC_SendTeacherInfoToCourse as "Send teacher info to course"
-usecase UC_ClickAddChild as "Click add child"
-usecase UC_EnterInfo as "Enter name, surname, birthdate, Hobby"
-usecase UC_Submit as "Click 'Submit'"
-usecase UC_Success as "Successful added"
+usecase UC_AddTeacher as "Add Teacher"
+usecase UC_EnterTeacherInfo as "Enter teacher info(Name, Surname, email, subject/course, temp password)"
+usecase UC_CreateAccount as "Create account"
+usecase UC_SendCredentials as "Send login credentials"
+usecase UC_NotifyTeacher as "Notify teacher"
 
-Parent --> UC_ClickAddChild
+' Связываем акторов с юзкейками
+EducationCenter --> UC_AddTeacher
 
-UC_ClickAddChild --> UC_EnterInfo
-UC_EnterInfo --> UC_Submit
-UC_Submit --> UC_Success
+UC_AddTeacher --> UC_EnterTeacherInfo
+UC_EnterTeacherInfo --> UC_CreateAccount
+UC_CreateAccount --> UC_SendCredentials
+UC_SendCredentials --> UC_NotifyTeacher
 
 @enduml

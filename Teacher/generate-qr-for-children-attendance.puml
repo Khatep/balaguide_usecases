@@ -1,0 +1,20 @@
+@startuml
+title Generate QR for Attendance
+
+actor Teacher
+
+left to right direction
+
+rectangle "Admin Panel or Teacher Dashboard" {
+  usecase "Open course" as UC_OpenCourse
+  usecase "Select course session" as UC_OpenSession
+  usecase "Generate QR" as UC_GenerateQR
+  usecase "Display QR to children" as UC_DisplayQR
+}
+
+Teacher --> UC_OpenCourse
+UC_OpenCourse --> UC_OpenSession
+UC_OpenSession --> UC_GenerateQR
+UC_GenerateQR --> UC_DisplayQR
+
+@enduml

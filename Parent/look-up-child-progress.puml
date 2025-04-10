@@ -1,0 +1,28 @@
+@startuml
+title Look Up Child Progress
+
+actor "Parent" as Parent
+
+left to right direction
+
+  usecase "Open App" as UC_OpenApp
+  usecase "Go to Profile" as UC_Profile
+  usecase "Open 'My Children' Section" as UC_MyChildren
+  usecase "Select Child" as UC_SelectChild
+  usecase "Choose Course" as UC_ChooseCourse
+  usecase "Click 'View Progress'" as UC_ClickProgress
+  usecase "Display Progress, Grades, and Recommendations" as UC_ShowProgress
+  usecase "Notify: Progress Not Available" as UC_NoProgress
+
+
+Parent --> UC_OpenApp
+UC_OpenApp --> UC_Profile
+UC_Profile --> UC_MyChildren
+UC_MyChildren --> UC_SelectChild
+UC_SelectChild --> UC_ChooseCourse
+UC_ChooseCourse --> UC_ClickProgress
+UC_ClickProgress --> UC_ShowProgress
+
+UC_ClickProgress --> UC_NoProgress : <<if not yet available>>
+
+@enduml

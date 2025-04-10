@@ -1,0 +1,20 @@
+@startuml
+title Add Lessons
+
+actor Teacher
+
+left to right direction
+
+rectangle "Admin Panel" {
+  usecase "Select course" as UC_Select
+  usecase "Click 'Add Lesson'" as UC_AddLesson
+  usecase "Enter lesson info(date, title, )" as UC_Enter
+  usecase "Save lesson" as UC_Save
+}
+
+Teacher --> UC_Select
+UC_Select --> UC_AddLesson
+UC_AddLesson --> UC_Enter
+UC_Enter --> UC_Save
+
+@enduml

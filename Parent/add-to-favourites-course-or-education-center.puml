@@ -1,0 +1,27 @@
+@startuml
+title Add to Favourites
+
+actor Parent
+
+left to right direction
+
+rectangle "Main Page" {
+  usecase "View courses and centers" as UC_View
+  usecase "Click on course/center" as UC_Click1
+}
+
+rectangle "Search Page" {
+  usecase "View courses and centers on map/Search by title of course" as UC_Search
+  usecase "Click on course/center" as UC_Click2
+}
+
+usecase "Add to favourites" as UC_Add
+
+Parent --> UC_View
+UC_View --> UC_Click1
+UC_Click1 --> UC_Add
+Parent --> UC_Search
+UC_Search --> UC_Click2
+UC_Click2 --> UC_Add
+
+@enduml

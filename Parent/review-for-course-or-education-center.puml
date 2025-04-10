@@ -1,0 +1,20 @@
+@startuml
+title Review for Course or Education Center
+
+actor Parent
+
+left to right direction
+
+rectangle "Main Page" {
+  usecase "Find completed or just course" as UC_Find
+  usecase "Open review form" as UC_Form
+  usecase "Write and submit review" as UC_Submit
+}
+
+
+
+Parent --> UC_Find
+UC_Find --> UC_Form
+UC_Form --> UC_Submit
+
+@enduml
