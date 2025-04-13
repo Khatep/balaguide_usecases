@@ -1,1 +1,26 @@
-   
+   @startuml
+title Emoji Reaction to Lesson
+
+actor "Child" as Child
+
+left to right direction
+
+usecase "Scan QR for Attendance" as UC_ScanQR
+usecase "System Marks Attendance" as UC_MarkAttendance
+usecase "Lesson Ends (auto/manual)" as UC_LessonEnd
+usecase "Prompt Emoji or Star Feedback" as UC_PromptFeedback
+usecase "Select and Send Emoji" as UC_SendEmoji
+usecase "Store Reaction" as UC_Store
+usecase "Remind if No Reaction" as UC_Remind
+
+
+Child --> UC_ScanQR
+UC_ScanQR --> UC_MarkAttendance
+UC_MarkAttendance --> UC_LessonEnd
+UC_LessonEnd --> UC_PromptFeedback
+UC_PromptFeedback --> UC_SendEmoji
+UC_SendEmoji --> UC_Store
+
+UC_PromptFeedback --> UC_Remind : <<if no emoji selected>>
+
+@enduml

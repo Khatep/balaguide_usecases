@@ -5,7 +5,7 @@ actor Teacher
 
 left to right direction
 
-rectangle "Admin Panel or Teacher Dashboard" {
+rectangle "Teacher Dashboard" {
   usecase "Open course" as UC_OpenCourse
   usecase "Select course session" as UC_OpenSession
   usecase "Generate QR" as UC_GenerateQR

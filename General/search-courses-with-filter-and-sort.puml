@@ -1,1 +1,26 @@
-    
+@startuml
+title Search Courses with Filter and Sort
+
+actor "Parent" as Parent
+actor "Child" as Child
+
+left to right direction
+
+usecase "Open App" as UC_OpenApp
+usecase "Go to Search Section" as UC_GoSearch
+usecase "Use Search Bar" as UC_Search
+usecase "Apply Filters" as UC_Filter
+usecase "Apply Sort" as UC_Sort
+usecase "View Results" as UC_ViewResults
+
+
+Parent --> UC_OpenApp
+Child --> UC_OpenApp
+
+UC_OpenApp --> UC_GoSearch
+UC_GoSearch --> UC_Search
+UC_Search --> UC_Filter
+UC_Filter --> UC_Sort
+UC_Sort --> UC_ViewResults
+
+@enduml

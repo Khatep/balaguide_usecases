@@ -1,0 +1,30 @@
+@startuml
+title Enroll Child to Full Course
+
+actor Parent
+
+left to right direction
+
+rectangle "Main Page" {
+  usecase "Browse courses" as UC_Browse
+  usecase "Click on course/center" as UC_Click1
+}
+
+rectangle "Search Page" {
+  usecase "View courses and centers on map or Search by title of course" as UC_Search
+  usecase "Click on course/center" as UC_Click2
+}
+
+  usecase "View course details" as UC_Details
+
+  Parent --> UC_Browse
+UC_Browse --> UC_Click1
+UC_Click1 --> UC_Details
+
+
+Parent --> UC_Search
+UC_Search --> UC_Click2
+UC_Click2 --> UC_Details
+
+
+@enduml
